@@ -27,10 +27,7 @@ update
 
 isLoading
 {
-    return current.isLoading
-        || current.menuActive == 1
-        || current.MapValue == 6
-        || current.MapValue == 3;
+    return (current.isLoading || current.menuActive == 1 || current.MapValue == 6 || current.MapValue == 3);
 }
 
 start
@@ -49,14 +46,7 @@ start
     else
     {
         // --- Deep in Abyss：タイトル(60) → 最初のマップ(1) で開始 ---
-        return (old.MapID == 60 && current.MapID == 1);
-
-        // もし別の開始条件にしたいときは以下のどれかに差し替え：
-        // 例1) メニューから操作可能になった瞬間
-        // return (old.menuActive == 1 && current.menuActive == 0);
-        //
-        // 例2) 特定マップへ「入った瞬間」
-        // return (current.MapID == 999 && old.MapID != 999);
+        return (old.MapValue == 6 && current.MapID == 80 && current.MapValue != 6);
     }
 }
 
@@ -92,9 +82,9 @@ split
     else
     {
         // ---- Deep in Abyss ----（必要な分割を追加）
-        // 例：
-        // if (old.MapID == 200 && current.MapID == 201) { return true; }
-        // if (current.MapID == 999 && old.MapID != 999) { return true; } // 入場瞬間で切る
+        if (old.MapID == 8 && current.MapID == 80) { return true; } // 飛び出し岩未踏域クリア（Escape Unexplored Area）
+        if (old.MapID == 3 && current.MapID == 80) { return true; } // ここうげ撃破（Silkfang）
+        if (old.MapID == 9 && current.MapID == 80) { return true; } // 一層ボス撃破（1st Boss）
     }
 
     return false;
