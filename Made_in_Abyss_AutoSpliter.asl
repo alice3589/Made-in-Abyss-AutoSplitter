@@ -35,7 +35,29 @@ isLoading
 
 start
 {
-    return current.isLoading;
+    bool hello = (bool)settings["use_hello"];
+    bool dia   = (bool)settings["use_dia"];
+    // DIAだけONなら cat=1、それ以外は cat=0(Hello)
+    int cat = (dia && !hello) ? 1 : 0;
+
+    if (cat == 0)
+    {
+        // --- Hello Abyss：ロードが立ち上がった瞬間で開始 ---
+        // 立ち上がりエッジ検出で誤爆防止（isLoading が true になった瞬間）
+        return current.isLoading && !old.isLoading;
+    }
+    else
+    {
+        // --- Deep in Abyss：タイトル(60) → 最初のマップ(1) で開始 ---
+        return (old.MapID == 60 && current.MapID == 1);
+
+        // もし別の開始条件にしたいときは以下のどれかに差し替え：
+        // 例1) メニューから操作可能になった瞬間
+        // return (old.menuActive == 1 && current.menuActive == 0);
+        //
+        // 例2) 特定マップへ「入った瞬間」
+        // return (current.MapID == 999 && old.MapID != 999);
+    }
 }
 
 /* ====== スプリット（カテゴリ完全分岐） ====== */
