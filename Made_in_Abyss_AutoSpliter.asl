@@ -84,6 +84,7 @@ split
         // ---- Deep in Abyss ----（必要な分割を追加）
         if (old.MapID == 8 && current.MapID == 80) { return true; } // 飛び出し岩未踏域クリア（Escape Unexplored Area）
         if (old.MapID == 3 && current.MapID == 80) { return true; } // ここうげ撃破（Silkfang）
+        if (old.MapID == 4 && current.MapID == 80) { return true; } // ティアレ捜索（Search for Tiare）
         if (old.MapID == 9 && current.MapID == 80) { return true; } // 一層ボス撃破（1st Boss）
     }
 
