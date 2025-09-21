@@ -8,21 +8,19 @@ state("MadeInAbyss-Win64-Shipping")
 
 startup
 {
-    // グループは使わず、トップレベルに2つのチェックを出す
     settings.Add("use_hello", true,  "Hello Abyss");
     settings.Add("use_dia",   false, "Deep in Abyss");
     settings.SetToolTip("use_hello", "Hello Abyss モードを使う");
     settings.SetToolTip("use_dia",   "Deep in Abyss モードを使う");
 }
 
-// どちらか一方になるように自動整列（誤操作で両方ON/OFFになっても直す）
 update
 {
     bool hello = (bool)settings["use_hello"];
     bool dia   = (bool)settings["use_dia"];
 
-    if (hello && dia)            settings.SetValue("use_hello", false); // DIAを優先
-    else if (!hello && !dia)     settings.SetValue("use_hello", true);  // どちらもOFFならHelloに戻す
+    if (hello && dia)            settings.SetValue("use_hello", false); 
+    else if (!hello && !dia)     settings.SetValue("use_hello", true);  
 }
 
 isLoading
@@ -45,7 +43,7 @@ start
     }
     else
     {
-        // --- Deep in Abyss：タイトル(60) → 最初のマップ(1) で開始 ---
+        // --- Deep in Abyss ---
         return (old.MapValue == 6 && current.MapID == 80 && current.MapValue != 6);
     }
 }
@@ -61,7 +59,7 @@ split
 
     if (cat == 0)
     {
-        // ---- Hello Abyss ----（既存ロジックそのまま）
+        // ---- Hello Abyss ----
         if (old.MapID == 60 && current.MapID == 1)  { return true; }
         if (old.MapID == 1  && current.MapID == 4)  { return true; }
         if (old.MapID == 4  && current.MapID == 2)  { return true; }
@@ -81,7 +79,7 @@ split
     }
     else
     {
-        // ---- Deep in Abyss ----（必要な分割を追加）
+        // ---- Deep in Abyss ----
         if (old.MapID == 8 && current.MapID == 80) { return true; } // 飛び出し岩未踏域クリア（Escape Unexplored Area）
         if (old.MapID == 3 && current.MapID == 80) { return true; } // ここうげ撃破（Silkfang）
         if (old.MapID == 4 && current.MapID == 80) { return true; } // ティアレ捜索（Search for Tiare）
