@@ -87,11 +87,11 @@ split
         if (old.MapID == 4 && current.MapID == 80) { return true; } // ティアレ捜索（Search for Tiare）
         if (old.MapID == 9 && current.MapID == 80) { return true; } // 1層ボス撃破（1st Boss）
         if (old.MapID == 15 && current.MapID == 16) { return true; } // 2層監視基地（To the Seeker Camp）
-        if (old.MapValue == 9 && current.MapID == 19 && current.MapValue != 9) { return true; } 2層ボス撃破（2nd Boss）
-        if (old.MapValue == 10 && current.MapID == 29 && current.MapValue != 10) { return true; } 3層ボス撃破（3rd Boss）
-        if (old.MapValue != 32 && current.MapID == 60 && current.MapValue == 32) { return true; } 黒笛の試練（Black Whistle Trial）
-        if (old.MapValue == 10 && current.MapID == 38 && current.MapValue != 10) { return true; } 4層ボス撃破（4th Boss）
-        if (old.MapValue != 31 && current.MapID == 60 && current.MapValue == 31) { return true; } 深界5層の調査（Fifth Layer Investigation）
+        if (old.MapValue == 9 && current.MapID == 19 && current.MapValue != 9) { return true; } // 2層ボス撃破（2nd Boss）
+        if (old.MapValue == 10 && current.MapID == 29 && current.MapValue != 10) { return true; } // 3層ボス撃破（3rd Boss）
+        if (old.MapValue != 32 && current.MapID == 60 && current.MapValue == 32) { return true; } // 黒笛の試練（Black Whistle Trial）
+        if (old.MapValue == 10 && current.MapID == 38 && current.MapValue != 10) { return true; } // 4層ボス撃破（4th Boss）
+        if (old.MapValue != 31 && current.MapID == 60 && current.MapValue == 31) { return true; } // 深界5層の調査（Fifth Layer Investigation）
         if (old.MapID == 50 && current.MapID == 60) { return true; } // 6層（6th Layer）
     }
 
