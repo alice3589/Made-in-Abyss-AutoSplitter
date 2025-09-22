@@ -32,7 +32,6 @@ start
 {
     bool hello = (bool)settings["use_hello"];
     bool dia   = (bool)settings["use_dia"];
-    // DIAだけONなら cat=1、それ以外は cat=0(Hello)
     int cat = (dia && !hello) ? 1 : 0;
 
     if (cat == 0)
