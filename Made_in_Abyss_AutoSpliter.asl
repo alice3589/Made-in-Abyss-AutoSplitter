@@ -11,7 +11,7 @@ startup
     settings.Add("use_hello", true,  "Hello Abyss");
     settings.Add("use_dia",   false, "Deep in Abyss");
     settings.SetToolTip("use_hello", "Use -Hello Abyss- Mode");
-    settings.SetToolTip("use_dia",   "Use  Mode");
+    settings.SetToolTip("use_dia",   "Use -Deep in Abyss- Mode");
 }
 
 update
