@@ -47,13 +47,11 @@ start
     }
 }
 
-/* ====== スプリット（カテゴリ完全分岐） ====== */
 split
 {
     bool hello = (bool)settings["use_hello"];
     bool dia   = (bool)settings["use_dia"];
 
-    // DIAだけONなら cat=1（DIA）。それ以外（両方OFF/両方ON/HelloのみON）は cat=0（Hello）
     int cat = (dia && !hello) ? 1 : 0;
 
     if (cat == 0)
