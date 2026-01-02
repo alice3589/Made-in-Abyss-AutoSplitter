@@ -88,5 +88,5 @@ split
         if (old.MapID == 50 && current.MapID == 60)                              { return true; } // 6層（6th Layer）
     }
 
-    return false; // 2026
+    return false; // 20261.1
 }
